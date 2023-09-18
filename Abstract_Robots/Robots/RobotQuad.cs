@@ -8,10 +8,12 @@ namespace Robots_inc
 {
     public class RobotQuad : RobotSpy
     {
-        
+        private int[] location;
         //1. עדכנו את הפעולה הבונה כך שתתאים לפעולת במחלקת העל
         public RobotQuad() : base("Roboquad")
-        {}
+        {
+            this.location = new int[4];
+        }
 
         public override void MoveBackward()
         {
@@ -47,8 +49,7 @@ namespace Robots_inc
 
         private void MoveLeg(int legId, int dir) 
         {
-            //this.legId = legId;
-            //this.dir += dir;
+            location[legId] += dir;
             SetBatteryStatus(GetBatteryStatus() - 3);
             //3. הוסיפו התייחסות לסוללה
         }

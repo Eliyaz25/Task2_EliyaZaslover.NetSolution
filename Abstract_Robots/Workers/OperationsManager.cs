@@ -24,7 +24,7 @@ namespace Robots_inc
 
         public override double Salary()
         {
-            throw new NotImplementedException();
+            return hourSalary * workHours * taskDone * 1.03;
         }
 
         //3. כתבו פעולה דורסת לחישוב שכר

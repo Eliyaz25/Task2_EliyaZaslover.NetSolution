@@ -10,29 +10,54 @@ namespace Robots_inc
     //שימו לב שעליכם להתייחס גם לתעופה
     class RobotFly : RobotSpy
     {
+        private int[] location;
 
         //1. עדכנו את הפעולה הבונה כך שתתאים לפעולת במחלקת העל
         public RobotFly() : base("Roboquad")
         { }
-        
+
         public override void MoveBackward()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < 4; i++)
+            {
+                this.MoveLeg(i, -1);
+            }
         }
 
         public override void MoveForward()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < 4; i++)
+                this.MoveLeg(i, 1);
         }
 
         public override void TurnLeft()
         {
-            throw new NotImplementedException();
+            this.MoveLeg(0, -1);
+            this.MoveLeg(1, -1);
+            this.MoveLeg(2, 1);
+            this.MoveLeg(3, 1);
         }
 
         public override void TurnRight()
         {
-            throw new NotImplementedException();
+            this.MoveLeg(0, 1);
+            this.MoveLeg(1, 1);
+            this.MoveLeg(2, -1);
+            this.MoveLeg(3, -1);
+        }
+
+        //2. השלימו את התנועות החסרות מתוך המצגת או על הבנתכם
+
+        private void MoveLeg(int legId, int dir)
+        {
+            location[legId] += dir;
+            SetBatteryStatus(GetBatteryStatus() - 2);
+            //3.
+        }
+
+        private void Fly()
+        {
+            SetBatteryStatus(GetBatteryStatus() - 1.5);
         }
     }
 }

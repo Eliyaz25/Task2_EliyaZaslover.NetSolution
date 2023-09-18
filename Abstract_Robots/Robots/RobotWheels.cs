@@ -12,10 +12,10 @@ namespace Robots_inc
         private int leftDir;
 
         //1. עדכנו את הפעולה הבונה כך שתתאים לפעולת במחלקת העל
-        public RobotWheels(int rightDir, int leftDir) : base("Spyke") 
+        public RobotWheels() : base("Spyke") 
         {
-            this.rightDir = rightDir;
-            this.leftDir = leftDir;
+            this.rightDir = 0;
+            this.leftDir = 0;
         } 
 
         public override void MoveForward()
